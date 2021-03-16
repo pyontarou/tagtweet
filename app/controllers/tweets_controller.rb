@@ -11,7 +11,7 @@ class TweetsController < ApplicationController
     @tweet = TweetsTag.new(tweet_params)
     if @tweet.valid?
       @tweet.save
-      return rediret_to root_path
+      return redirect_to root_path
     else
       render "new"
     end

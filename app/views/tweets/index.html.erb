@@ -8,9 +8,11 @@
       <div class="message">
         <p class="text">
           <%= link_to tweet.message, "/tweets/#{tweet.id}" %>
+          <%= image_tag "star.png" ,class:"favorite-star-icon" ,width:"20",height:"20"%>
+        <%= link_to "削除", tweet_path(tweet.id), method: :delete, class:"item-destroy" %>
         </p>
         <ul class="tag">
-          <span>投稿者:</span><%= tweet.user.nickname %>
+          <span>投稿者:</span><%#tweet.user.nickname %>
           <br><span>投稿日時:</span><%= tweet.updated_at.strftime("%Y-%m-%d %H:%M:%S") %>
           <li class="tag-list">
             <% tweet.tags.each do |tag| %>

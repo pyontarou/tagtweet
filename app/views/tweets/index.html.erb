@@ -6,13 +6,18 @@
 <% end %>
     <% @tweets.each do |tweet| %>
       <div class="message">
+          
+          <div id="tweet_<%= @tweet.id %>"> 
+          <%= render 'tweet', locals:@tweet %>
+          </div>
         <p class="text">
           <%= link_to tweet.message, "/tweets/#{tweet.id}" %>
-          <%= image_tag "star.png" ,class:"favorite-star-icon" ,width:"20",height:"20"%>
-        <%= link_to "削除", tweet_path(tweet.id), method: :delete, class:"item-destroy" %>
-        </p>
+         <% if user_signed_in? && current_user.id == tweet.user_id %>
+          <%= link_to "削除", tweet_path(tweet.id), method: :delete %>
+          </p>
+        <% end %>
         <ul class="tag">
-          <span>投稿者:</span><%#tweet.user.nickname %>
+          <span>投稿者:</span><%# tweet.user.nickname %>
           <br><span>投稿日時:</span><%= tweet.updated_at.strftime("%Y-%m-%d %H:%M:%S") %>
           <li class="tag-list">
             <% tweet.tags.each do |tag| %>

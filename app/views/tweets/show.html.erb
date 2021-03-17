@@ -1,10 +1,13 @@
   <h2>「<%= @tweet.message %>」へのコメント</h2>
- <%= form_with(model: [@tweet, @comment], local: true) do |f| %>
- 
-  <%= f.text_field :text %>
-  <button type="submit" id="submit-btn" class="comment-btn">コメントする</button>
- <% end %> 
+<% if user_signed_in? %>
 
+  <%= form_with(model: [@tweet, @comment], local: true) do |f| %>
+    <%= f.text_field :text %>
+    <button type="submit" id="submit-btn" class="comment-btn">コメントする</button>
+  <% end %>
+<% else %> 
+  <strong><p>※※※ コメントの投稿には新規登録/ログインが必要です ※※※</p></strong>
+<% end %>
   <div id='comments'>
     <% @comments.reverse_each do |comment| %>
     <p><%= comment.user.nickname %>:

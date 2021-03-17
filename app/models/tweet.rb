@@ -3,6 +3,8 @@ class Tweet < ApplicationRecord
   has_many :tags, through: :tweet_tag_relations
   belongs_to :user
   has_many :comments,dependent: :destroy
+  has_many :likes, dependent: :destroy
+  has_many :users, through: :likes
 
   def self.search(look)
     if look != ""

@@ -1,12 +1,16 @@
 class TweetsController < ApplicationController
   def index
-    @tweets = Tweet.all.order(created_at: :desc)
+    @tweets = Tweet.includes(:user).order(created_at: :desc)
   end
 
   def new
     @tweet = TweetsTag.new
   end
 
+  def show
+    @tweet = Tweet.find(params[:id])
+  end
+  
   def create
     @tweet = TweetsTag.new(tweet_params)
     if @tweet.valid?
@@ -26,6 +30,6 @@ class TweetsController < ApplicationController
   private 
 
   def tweet_params
-    params.require(:tweets_tag).permit(:message, :name)
+    params.require(:tweets_tag).permit(:message, :name).merge(user_id: current_user.id)
   end
 end

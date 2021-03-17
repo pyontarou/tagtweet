@@ -1,6 +1,7 @@
 class TweetsController < ApplicationController
   def index
-    @tweets = Tweet.includes(:user).order(created_at: :desc)
+    @tweets = Tweet.includes(:user).order(created_at: :desc).limit(20)
+    
   end
 
   def new
@@ -9,6 +10,8 @@ class TweetsController < ApplicationController
 
   def show
     @tweet = Tweet.find(params[:id])
+    @comment = Comment.new
+    @comments = @tweet.comments.includes(:user)
   end
   
   def create

@@ -24,6 +24,10 @@ class TweetsController < ApplicationController
     end
   end
 
+  def look
+    @tweets = Tweet.search(params[:keyword])
+  end
+
   def search
     return nil if params[:keyword] == ""
     tag = Tag.where(['name LIKE? ', "%#{params[:keyword]}%"] )

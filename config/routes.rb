@@ -4,6 +4,9 @@ Rails.application.routes.draw do
   root to: 'tweets#index'
   resources :tweets, only: [:index, :new, :show, :create, :destroy] do
     collection do 
+      get 'seek'
+    end
+    collection do 
       get 'look'
     end
     collection do 

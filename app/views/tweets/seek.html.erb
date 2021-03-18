@@ -3,32 +3,27 @@
   <%= form_with(url: look_tweets_path, local: true, method: :get, class: "search-form") do |form| %>
   <%= form.text_field :keyword, placeholder: "投稿を検索する", class: "search-input" %>
   <%= form.submit "検索", class: "search-btn" %>
-<% end %>
   <%= search_form_for @q, url: seek_tweets_path do |f| %>
   <%= f.label :name_eq, 'タグ名' %>
   <%= f.search_field :name_eq %>
   <br>
   <%= f.submit '検索' %>
 <% end %>
-    <% @tweets.each do |tweet| %>
+<% end %>
+  <% @results.each do |result| %>
       <div class="message">
           
-          <div id="tweet_<%= @tweet.id %>"> 
-          <%= render 'tweet', locals:@tweet %>
-          </div>
         <p class="text">
-          <%= link_to tweet.message, "/tweets/#{tweet.id}" %>
-         <% if user_signed_in? && current_user.id == tweet.user_id %>
-          <%= link_to "削除", tweet_path(tweet.id), method: :delete %>
+          <%= link_to @tweet.message, "/tweets/#{@tweet.id}" %>
+         <% if user_signed_in? && current_user.id == @tweet.user_id %>
+          <%= link_to "削除", tweet_path(@tweet.id), method: :delete %>
           </p>
         <% end %>
         <ul class="tag">
           <span>投稿者:</span><%= @user.nickname %>
-          <br><span>投稿日時:</span><%= tweet.updated_at.strftime("%Y-%m-%d %H:%M:%S") %>
+          <br><span>投稿日時:</span><%= @tweet.updated_at.strftime("%Y-%m-%d %H:%M:%S") %>
           <li class="tag-list">
-            <% tweet.tags.each do |tag| %>
-            #<%= tag.name %>
-            <% end %>
+            #<%= result.name %>
           </li>
         </ul>
       </div>

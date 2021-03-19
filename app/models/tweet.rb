@@ -6,6 +6,8 @@ class Tweet < ApplicationRecord
   has_many :likes, dependent: :destroy
   has_many :users, through: :likes
 
+  validates :message, presence: true
+
   def self.search(look)
     if look != ""
       Tweet.where('message LIKE(?)',"%#{look}%")

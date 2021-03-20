@@ -1,7 +1,7 @@
 .form-wrap{
-  height: 100vh;
+  height: 85vh;
   width: 100vw;
-  background-color: #f8f8f8f8;
+  background-color: #FFFAFA;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -13,7 +13,7 @@
   background-color: white;
   display: flex;
   flex-direction: column;
-  padding-bottom: 20px;
+  padding: 50px;
 }
 
 .message-field{

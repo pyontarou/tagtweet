@@ -1,18 +1,29 @@
-  <h2>「<%= @tweet.message %>」へのコメント</h2>
-<% if user_signed_in? %>
-
-  <%= form_with(model: [@tweet, @comment], local: true) do |f| %>
-    <%= f.text_field :text %>
-    <button type="submit" id="submit-btn" class="comment-btn">コメントする</button>
-  <% end %>
-<% else %> 
-  <strong><p>※※※ コメントの投稿には新規登録/ログインが必要です ※※※</p></strong>
-<% end %>
-  <div id='comments'>
-    <% @comments.reverse_each do |comment| %>
-    <p><%= comment.user.nickname %>:
-    <%= comment.text %>
-    <br><span>投稿日時:</span><%= comment.updated_at.strftime("%Y-%m-%d %H:%M:%S") %></p>
-
+  <div class="comment-main"> 
+    <div class="comment-wrap"> 
+    <span><%= link_to "Topページへ戻る", root_path %></span>
+    <div class="like-count">
+      <h2>「<%= @tweet.message %>」へのコメント</h2>
+      <p class="comment-send-main">(投稿者:<%= @tweet.user.nickname %>)</p>
+      <div id="tweet_<%= @tweet.id %>"> 
+        <%= render 'tweet', locals:@tweet %>
+      </div>
+    </div>
+    <% if user_signed_in? %>
+      <%= form_with(model: [@tweet, @comment], local: true) do |f| %>
+        <%= f.text_field :text %>
+        <button type="submit" id="submit-btn" class="comment-btn">コメントする</button>
+      <% end %>
+    <% else %> 
+      <strong><p>※※※ コメントの投稿には新規登録/ログインが必要です ※※※</p></strong>
     <% end %>
+      <div id='comments'>
+        <div class='comment-lists'>
+        <% @comments.reverse_each do |comment| %>
+          <p class="comment-box" ><span class="user-nickname"><%= comment.user.nickname %>:</span>
+          <span class="comment-text"><%= comment.text %></span>
+          <br><span class="comment-update">投稿日時:<%= comment.updated_at.strftime("%Y-%m-%d %H:%M:%S") %></span></p>
+        <% end %>
+        </div>
+      </div>
+    </div>
   </div>

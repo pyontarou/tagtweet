@@ -1,13 +1,11 @@
 class TweetsController < ApplicationController
-  before_action :move_to_index, except: [:index, :show, :search]
-  before_action :set_q, only: [:index, :seek]
+  before_action :move_to_index, except: [:index, :show, :search,:look, :seek]
+  before_action :set_q, only: [:index, :look, :seek]
 
   def index
-    @tweets = Tweet.includes(:user).order(created_at: :desc).limit(20)
+    @tweets = Tweet.includes(:user).order(created_at: :desc).limit(30)
     @like = Like.new
-    @tweet = Tweet.find_by(params[:id])
-    @user = User.find_by(params[:id])
-    @tags = @tweet.tags.where(params[:id])
+    @tags = Tag.where(params[:id])
   end
 
   def new
@@ -41,9 +39,9 @@ class TweetsController < ApplicationController
   end
 
   def seek
-    @tweet = Tweet.find_by(params[:id])
-    @results = @q.result
-    @user = User.find_by(params[:id])
+    @results = @q.result(distinct: true).includes(:tweets)
+    @tweet = Tweet.find_by(params[:tweet_id])
+    @user = User.find_by(params[:user_id])
   end
 
   def destroy
@@ -55,11 +53,11 @@ class TweetsController < ApplicationController
   private 
 
   def set_q
-    @q = Tag.ransack(params[:q])
+    @q = Tag.ransack(params[:q]) 
   end
 
   def tweet_params
-    params.require(:tweets_tag).permit(:message, :name).merge(user_id: current_user.id)
+    params.require(:tweets_tag).permit(:message,:name).merge(user_id: current_user.id)
   end
 
   def move_to_index

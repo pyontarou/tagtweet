@@ -1,24 +1,29 @@
 <div class="main">
-  <div class="message-wrap">
-  <%= form_with(url: look_tweets_path, local: true, method: :get, class: "search-form") do |form| %>
-  <%= form.text_field :keyword, placeholder: "投稿を検索する", class: "search-input" %>
-  <%= form.submit "検索", class: "search-btn" %>
-<% end %>
+  <%= render "shared/searcher" %>
+  <div class='tweet-main'>
     <% @tweets.each do |tweet| %>
       <div class="message">
+          <div class='cat-btn'>
+            <%= image_tag "cat.png", class:"cat-icon" %>
+            <span class='cat-count'><%= tweet.likes.count %></span>
+          </div>
         <p class="text">
-          <%= link_to tweet.message, "/tweets/#{tweet.id}" %>
+          <%= link_to tweet.message, "/tweets/#{tweet.id}",class:"tweet-text" %>
         </p>
         <ul class="tag">
           <span>投稿者:</span><%= tweet.user.nickname %>
-          <br><span>投稿日時:</span><%= tweet.updated_at.strftime("%Y-%m-%d %H:%M:%S") %>
+          <br><span class="tweet-update">投稿日時:</span><%= tweet.updated_at.strftime("%Y-%m-%d %H:%M:%S") %>
           <li class="tag-list">
             <% tweet.tags.each do |tag| %>
             #<%= tag.name %>
+            <% end %>
+            <% if user_signed_in? && current_user.id == tweet.user_id %>
+              <%= button_to "削除", tweet_path(tweet.id), method: :delete ,class:"delete-text"%>
             <% end %>
           </li>
         </ul>
       </div>
     <% end %>
+  </div>
   </div>
 </div>

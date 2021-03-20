@@ -1,0 +1,11 @@
+<div class="message-wrap">
+    <div class="search-box">
+    <%= form_with(url: look_tweets_path, local: true, method: :get, class: "search-form") do |f| %>
+      <%= f.text_field :keyword, placeholder: "投稿を検索する", class: "search-input" %>
+      <%= f.submit "検索", class: "search-btn" %>
+    <% end %>
+    <%= search_form_for @q, url: seek_tweets_path(@tweet) do |f| %>
+      <%= f.text_field :name_cont, placeholder: "タグを検索する", class: "search-input" %>
+      <%= f.submit '検索', class: "search-btn" %>
+    <% end %>
+  </div>

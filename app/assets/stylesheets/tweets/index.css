@@ -2,45 +2,10 @@
   box-sizing: border-box;
 }
 
-.header{
-  width: 100%;
-  height: 10vh;
-  background-color: #f8f8f8f8;
-  display: flex;
-  justify-content: center;
-}
-
-.inner-header{
-  width: 50%;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  list-style: none;
-}
-
-.title{
-  font-size: 40px;
-  font-weight: bold;
-}
-
-.new-post{
-  width: 100px;
-  height: 50px;
-  line-height: 50px;
-  margin-left: 50px;
-  text-align: center;
-}
-
-.post-btn{
-  color: black;
-  font-size: 15px;
-  text-decoration: none;
-}
-
 .main{
   width: 100%;
   height: 90vh;
-  background-color: #f8f8f8f8;
+  background-color: #FFFAFA;
   display: flex;
   justify-content: center;
 }
@@ -52,6 +17,15 @@
   overflow: auto;
 }
 
+.search-box{
+  display: flex;
+  justify-content: space-around;
+}
+
+.search-btn{
+  font-weight: bold;
+}
+
 .message{
   width: 100%;
   height: 20%;
@@ -61,7 +35,19 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+}
+.cat-btn{
+  display: flex;
+  align-items: center;
+}
 
+.cat-icon{
+  width: 50%;
+  margin-right: 8px;
+}
+
+.tweet-text{
+  text-decoration: none;
 }
 
 .text{
@@ -71,14 +57,18 @@
   align-items: center;
 }
 
+.tweet-update{
+  font-size: 15px
+}
+
 .tag{
   height: 40%;
-  /* display: flex; */
   justify-content: flex-end;
   align-items: center;
   list-style: none;
 }
 
 .tag-list{
-  margin-bottom: 10px;
+  margin-bottom: 8px;
+  font-weight: bold;
 }

@@ -80,3 +80,25 @@ text-decoration: none;
 .post-btn:hover{
   background:#777777;
   }
+
+  /* タブレット表示時 */
+ @media (max-width: 1024px) {
+  .main-title {
+    font-size: 95%;
+   }
+   .post,
+  .post-btn{
+    width:90px
+  }
+  }
+
+  /* スマホ表示時 */
+ @media (max-width: 500px) {
+  .main-title {
+    font-size: 95%;
+   }
+   .post,
+  .post-btn{
+    width:90px
+  }
+ }

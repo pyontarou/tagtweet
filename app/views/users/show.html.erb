@@ -1,0 +1,29 @@
+<div class="main">
+  <div class="message-wrap">
+  <p class="user-page-nickname"><%= @nickname %>さんの投稿一覧</p>
+    <div class='tweet-main'>
+        <% @tweets.each do |tweet| %>
+          <div class="message"> 
+            <div class='cat-btn'>
+              <%= image_tag "cat.png", class:"cat-icon" %>
+              <span class='cat-count'><%= tweet.likes.count %></span>
+            </div>
+            <p class="text">
+              <%= link_to tweet.message, "/tweets/#{tweet.id}" ,class:"tweet-text"%>
+            </p>
+            <ul class="tag">
+              <br><span class="tweet-update">投稿日時:<%= tweet.updated_at.strftime("%Y-%m-%d %H:%M:%S") %>
+              <li class="tag-list"></span>
+                <% tweet.tags.each do |tag| %>
+                #<%= tag.name %>
+                <% end %>
+                <% if user_signed_in? && current_user.id == tweet.user_id %>
+                <%= button_to "削除", tweet_path(tweet.id), method: :delete ,class:"delete-text"%>
+              <% end %>
+              </li>
+            </ul>
+          </div>
+        <% end %>
+      </div>
+  </div>
+</div>

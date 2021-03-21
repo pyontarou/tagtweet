@@ -4,7 +4,7 @@ class CommentsController < ApplicationController
     @tweet = Tweet.find(params[:tweet_id])
     @comment = Comment.new(comment_params)
     @comment.save
-      ActionCable.server.broadcast "comment_channel", content: @comment,name: @comment.user.nickname, update: @comment.updated_at
+      ActionCable.server.broadcast "comment_channel", content: @comment,name: @comment.user.nickname, update: @comment.updated_at.strftime("%Y-%m-%d %H:%M:%S")
   end
 
   private

@@ -14,6 +14,9 @@
 <div class="inner-header">
   <h1 class="title">
     <%= link_to "MothersTweets ", root_path ,class:"main-title" %>
+    <% if user_signed_in? %>
+        <li><%= link_to "#{current_user.nickname}さん", "/users/#{current_user.id}", class: "user-nickname" %></li> 
+    <% end %>
    </h1>
     <div class="header_bar">
       <% if user_signed_in? %>
@@ -27,6 +30,7 @@
           <%= link_to "新規登録", new_user_registration_path, class: "post-btn" %>
         </div>
       <% end %>
+    
     </div>
   </div>
 </div>

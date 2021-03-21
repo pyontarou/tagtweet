@@ -5,7 +5,6 @@ class TweetsController < ApplicationController
   def index
     @tweets = Tweet.includes(:user).order(created_at: :desc).limit(30)
     @like = Like.new
-    @tags = Tag.where(params[:id])
   end
 
   def new
@@ -39,9 +38,7 @@ class TweetsController < ApplicationController
   end
 
   def seek
-    @results = @q.result(distinct: true).includes(:tweets)
-    @tweet = Tweet.find_by(params[:tweet_id])
-    @user = User.find_by(params[:user_id])
+    @results = @q.result.includes(:user)
   end
 
   def destroy
@@ -53,7 +50,7 @@ class TweetsController < ApplicationController
   private 
 
   def set_q
-    @q = Tag.ransack(params[:q]) 
+    @q = Tweet.ransack(params[:q]) 
   end
 
   def tweet_params

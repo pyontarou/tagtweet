@@ -4,8 +4,8 @@
       <%= f.text_field :keyword, placeholder: "投稿を検索する", class: "search-input" %>
       <%= f.submit "検索", class: "search-btn" %>
     <% end %>
-    <%= search_form_for @q, url: seek_tweets_path(@tweet) do |f| %>
-      <%= f.text_field :name_cont, placeholder: "タグを検索する", class: "search-input" %>
+    <%= search_form_for @q, url: seek_tweets_path do |f| %>
+      <%= f.text_field :tags_name_cont, placeholder: "タグを検索する", class: "search-input" %>
       <%= f.submit '検索', class: "search-btn" %>
     <% end %>
   </div>

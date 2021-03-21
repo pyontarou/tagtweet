@@ -11,7 +11,6 @@
           <%= link_to tweet.message, "/tweets/#{tweet.id}",class:"tweet-text" %>
         </p>
         <ul class="tag">
-          <span>投稿者:</span><%= tweet.user.nickname %>
           <br><span class="tweet-update">投稿日時:</span><%= tweet.updated_at.strftime("%Y-%m-%d %H:%M:%S") %>
           <li class="tag-list">
             <% tweet.tags.each do |tag| %>

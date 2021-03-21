@@ -3,22 +3,24 @@
     
       <div class='tweet-main'>
   <% @results.each do |result| %>
+  
     <div class="message">
       <div class='cat-btn'>
         <%= image_tag "cat.png", class:"cat-icon" %>
-        <span class='cat-count'><%= @tweet.likes.count %></span>
+        <span class='cat-count'><% result.likes.count %></span>
       </div>
       <p class="text">
-        <%= link_to @tweet.message, "/tweets/#{@tweet.id}",class:"tweet-text" %>
-        <% if user_signed_in? && current_user.id == @tweet.user_id %>
-          <%= link_to "削除", tweet_path(@tweet.id), method: :delete %>
+        <%= link_to result.message, "/tweets/#{result.id}",class:"tweet-text" %>
+      <ul class="tag">
+        <br><span class="tweet-update">投稿日時:</span><%= result.updated_at.strftime("%Y-%m-%d %H:%M:%S") %>
+        <li class="tag-list">
+        <% result.tags.each do |tag| %>
+          #<%= tag.name %>
+        <% end %>
+        <% if user_signed_in? && current_user.id == result.user_id %>
+           <%= button_to "削除", tweet_path(result.id), method: :delete ,class:"delete-text"%>
         </p>
         <% end %>
-      <ul class="tag">
-        <span>投稿者:</span><%= @user.nickname %>
-        <br><span class="tweet-update">投稿日時:</span><%= @tweet.updated_at.strftime("%Y-%m-%d %H:%M:%S") %>
-        <li class="tag-list">
-          #<%= result.name %>
         </li>
       </ul>
       </div>

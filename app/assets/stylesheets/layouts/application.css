@@ -27,6 +27,22 @@
 
 }
 
+.user-nickname{
+  font-size: 20px;
+  font-weight: bold;
+  text-decoration: none;
+  color:#666666 ;
+}
+.main-title:hover,
+.user-nickname:hover{
+  color: aqua;
+}
+
+.user-nickname:hover{
+  color: #FF00FF;
+}
+
+
 .user_nav{
   display: flex;
 }

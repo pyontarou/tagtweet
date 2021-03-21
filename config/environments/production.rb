@@ -1,7 +1,7 @@
 Rails.application.configure do
   ActionCable.server.config.disable_request_forgery_protection = true
-  config.action_cable.url = "wss://tagtweet.herokuapp.com/cable" 
-  config.action_cable.allowed_request_origins = ['https://tagtweet.herokuapp.com', 'http://tagtweet.herokuapp.com']
+  config.action_cable.url = "wss://tagtweet-mother.herokuapp.com/cable" 
+  config.action_cable.allowed_request_origins = ['https://tagtweet-mother.herokuapp.com', 'http://tagtweet-mother.herokuapp.com']
 
   # Settings specified here will take precedence over those in config/application.rb.
 

@@ -2,7 +2,7 @@
     <div class="comment-wrap"> 
     <span><%= link_to "Topページへ戻る", root_path %></span>
     <div class="like-count">
-      <h2>「<%= @tweet.message %>」へのコメント</h2>
+      <h2 class="comment-tweet-message">「<%= @tweet.message %>」へのコメント</h2>
       <p class="comment-send-main">(投稿者:<%= @tweet.user.nickname %>)</p>
       <div id="tweet_<%= @tweet.id %>"> 
         <%= render 'tweet', locals:@tweet %>

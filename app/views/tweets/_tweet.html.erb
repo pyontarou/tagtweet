@@ -1,9 +1,9 @@
  <div class="like-main">
     <% if current_user&.like?(@tweet)  %>
-        <span class="like-delete-image"><%= link_to image_tag("cat.png",size: "26x26"),tweet_like_path(tweet_id: @tweet, id: current_user.likes.find_by(tweet_id: @tweet)), method: :delete, class:'tweet-like',remote: true  %><%= @tweet.likes.count %></span>
+        <span class="like-delete-image"><%= link_to image_tag("cat.png",size: "25x25"),tweet_like_path(tweet_id: @tweet, id: current_user.likes.find_by(tweet_id: @tweet)), method: :delete, class:'tweet-like',remote: true  %><%= @tweet.likes.count %></span>
     
     <% else %>
-        <span class="like-image"><%= link_to image_tag("star.png",size: "26x26"),tweet_likes_path(@tweet), method: :post,class:'tweet-like',  remote: true %><%= @tweet.likes.count %></span>
+        <span class="like-image"><%= link_to image_tag("star.png",size: "25x25"),tweet_likes_path(@tweet), method: :post,class:'tweet-like',  remote: true %><%= @tweet.likes.count %></span>
     <% end %>
 </div>
 

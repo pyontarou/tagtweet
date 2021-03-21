@@ -12,6 +12,11 @@
   background-color: white;
   overflow: auto;
 }
+
+.comment-tweet-message{
+  font-size: 18px;
+}
+
 .like-count{
   display: flex;
  align-items: center; 
@@ -21,6 +26,9 @@
   font-weight: bold;
 }
 
+.tweet-like{
+  margin-right: 5px;
+}
 .like-main{
   margin-left: 10px;
 }
@@ -34,6 +42,7 @@
 .user-nickname{
   color: #666666;
   margin-right: 20px;
+  font-size: 16px;
 }
 
 .comment-text{

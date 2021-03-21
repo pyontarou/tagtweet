@@ -71,19 +71,23 @@ WebブラウザGoogle Chromeの最新版を利用してアクセスしてくだ�
 
 # 実装内容
 ・タグ付け機能にインクリメンタルサーチを実装し入力しやすくしました。<br/>
- 
+  https://gyazo.com/d74a7fc05ee0e91d69492fde8c8e54be
 
 ・コメントを即時更新する機能を、Action Cableを用いて実装しました。<br/>
- 
+  https://gyazo.com/c678d1d6885952e72e4f47926e399819
 
-・「いいね」機能は非同期で実装しました。また、「いいね」のクリック前後でイメージ画像が変わるようにし、わかりやすくしました<br/>
- 
+・「いいね」機能は非同期で実装しました。また、「いいね」のクリック前後でイメージ画像が変わるようにし、わかりやすくしました。<br/>
+  https://gyazo.com/faeadc2d5b2109917bf07172937a582b
 
 ・投稿済みのツイート・タグの両方から検索できるようにしました。<br/>
-  
+  https://gyazo.com/5bad314a57a57b6303514e26990dbfa0 <br/>
+  https://gyazo.com/d7a6a738776ec7f1ec005423c32ceb22 <br/>
 
 ・レスポンシブ対応のWebサイトを作成しました。<br/>
-  
+  https://gyazo.com/b22fba34046b850e1075d0c607a74e30
+
+・ユーザーが投稿したツイートを確認できる一覧表示を作成しました。<br/>
+  https://gyazo.com/b3bdf9544033df74943aa711eded84aa
 
 <br/>
 
@@ -113,7 +117,7 @@ https://gyazo.com/f072c0d77b0fa72b65e5d0331d7bede7
 - has_many :comments
 - has_many :likes, dependent: :destroy 
 - has_many :like_tweets, through: :likes, source: :tweet
-- 
+
 ## tweets テーブル
 
 | Column          | Type       | Options                        |

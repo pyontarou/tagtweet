@@ -38,7 +38,7 @@ class TweetsController < ApplicationController
   end
 
   def seek
-    @results = @q.result.includes(:user)
+    @results = @q.result.includes(:user).order(created_at: :desc)
   end
 
   def destroy

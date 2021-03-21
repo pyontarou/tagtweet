@@ -17,12 +17,7 @@
   overflow: auto;
 }
 
-.search-box{
-  display: flex;
-  justify-content: space-around;
-}
-
-.search-btn{
+.user-page-nickname{
   font-weight: bold;
 }
 

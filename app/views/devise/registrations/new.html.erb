@@ -1,24 +1,21 @@
 <div class="main">
   <div class="message-wrap">
-    <h2>Sign up</h2>
     <%= form_with model: @user, url: user_registration_path , local: true do |f| %>
       <%= render "devise/shared/error_messages", resource: resource %>
 
       <div class="field">
         <label class="form-text">ニックネーム</label>
-        <br><%= f.text_area :nickname, class:"input-default", id:"nickname", placeholder:"例) レシピ太郎", maxlength:"40" %>
+        <br><%= f.text_area :nickname, class:"input-default", id:"nickname", placeholder:"例) たろうママ", maxlength:"40" %>
       </div>
       <div class="field">
         <label class="form-text">Eメール</label>
-        <%= f.label :email %><br />
-        <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+        <br><%= f.email_field :email, autofocus: true, autocomplete: "email" %>
       </div>
 
       <div class="field">
         <label class="form-text">パスワード</label>
-        <%= f.label :password %>
         <% if @minimum_password_length %>
-        <em>(<%= @minimum_password_length %> characters minimum)</em>
+        <em>(半角英数字<%= @minimum_password_length %> 文字以上)</em>
         <% end %><br />
         <%= f.password_field :password, autocomplete: "new-password" %>
       </div>
@@ -61,9 +58,8 @@
                           date_separator: '%s'),
                         "<p> 年 </p>", "<p> 月 </p>") + "<p> 日 </p>" %>
           </div>
-      
           <div class="actions">
-            <%= f.submit "Sign up" %>
+            <%= f.submit "Sign up",class:"register-red-btn"  %>
           </div>
     <% end %>
   </div>

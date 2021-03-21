@@ -1,15 +1,14 @@
 <div class="main">
   <div class="message-wrap">
-    <h2>Log in</h2>
     <%= form_with model: @user, url: user_session_path , local: true do |f| %>
       <div class="field">
-        <%= f.label :email %><br />
-        <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+      <label class="form-text">Eメール</label>
+        <br><%= f.email_field :email, autofocus: true, autocomplete: "email" %>
       </div>
 
       <div class="field">
-        <%= f.label :password %><br />
-        <%= f.password_field :password, autocomplete: "current-password" %>
+       <label class="form-text">パスワード</label>
+       <br> <%= f.password_field :password, autocomplete: "current-password" %>
       </div>
 
       <% if devise_mapping.rememberable? %>
@@ -20,7 +19,7 @@
       <% end %>
 
       <div class="actions">
-        <%= f.submit "Log in" %>
+        <%= f.submit "Log in" ,class:"register-red-btn" %>
       </div>
     <% end %>
   </div>

@@ -1,5 +1,5 @@
 class TweetsController < ApplicationController
-  before_action :move_to_index, except: [:index, :show, :search,:look, :seek]
+  before_action :authenticate_user!, except: [:show, :index, :search,:look, :seek]
   before_action :set_q, only: [:index, :look, :seek]
 
   def index
@@ -57,9 +57,4 @@ class TweetsController < ApplicationController
     params.require(:tweets_tag).permit(:message,:name).merge(user_id: current_user.id)
   end
 
-  def move_to_index
-    unless user_signed_in?
-      redirect_to action: :index
-    end
-  end
 end

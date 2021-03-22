@@ -79,23 +79,30 @@ WebブラウザGoogle Chromeの最新版を利用してアクセスしてくだ�
 
 ## ・工夫したポイント
 ・タグ付け機能にインクリメンタルサーチを実装し入力しやすくしました。<br/>
+![tag_incremental_search](https://user-images.githubusercontent.com/78154493/111959595-04cb7380-8b32-11eb-892b-dd523bab8b54.gif)
   https://gyazo.com/d74a7fc05ee0e91d69492fde8c8e54be
 
 ・コメントを即時更新する機能を、Action Cableを用いて実装しました。<br/>
+![comments_action_cable](https://user-images.githubusercontent.com/78154493/111958876-1c562c80-8b31-11eb-88c3-2b68a2695354.gif)
   https://gyazo.com/c678d1d6885952e72e4f47926e399819
 
 ・「いいね」機能は非同期で実装しました。また、「いいね」のクリック前後でイメージ画像が変わるようにし、わかりやすくしました。<br/>
+![iine_asynchronous](https://user-images.githubusercontent.com/78154493/111959675-1dd42480-8b32-11eb-933a-5e2f256b413e.gif)
   https://gyazo.com/faeadc2d5b2109917bf07172937a582b
 
 ・投稿済みのツイート・タグの両方から検索できるようにしました。<br/>
+![posted_tweets_search](https://user-images.githubusercontent.com/78154493/111959758-38a69900-8b32-11eb-93f3-693d16dbfe42.gif)
   https://gyazo.com/5bad314a57a57b6303514e26990dbfa0 <br/>
+![tag_search](https://user-images.githubusercontent.com/78154493/111959809-4825e200-8b32-11eb-890a-38e01c6640c5.gif)
   https://gyazo.com/d7a6a738776ec7f1ec005423c32ceb22 <br/>
 
 ・レスポンシブ対応のWebサイトを作成しました。<br/>
+![responsible](https://user-images.githubusercontent.com/78154493/111959853-583dc180-8b32-11eb-9b65-41665c491115.gif)
   https://gyazo.com/b22fba34046b850e1075d0c607a74e30
 
 ・ユーザーが投稿したツイートを確認できる一覧表示を作成しました。<br/>
-  https://gyazo.com/b3bdf9544033df74943aa711eded84aa
+![user_tweets_display](https://user-images.githubusercontent.com/78154493/111959924-73103600-8b32-11eb-90ba-2ca90b715572.gif)
+https://gyazo.com/b3bdf9544033df74943aa711eded84aa
 
 <br/>
 
